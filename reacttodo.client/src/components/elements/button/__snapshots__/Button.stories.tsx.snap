@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components/Button ComplexContent smoke-test 1`] = `
+<button type="button"
+        aria-label="Button"
+>
+  <strong>
+    Bold Button
+  </strong>
+</button>
+`;
+
+exports[`Components/Button LabelAsContent play-test 1`] = `
+<button type="button"
+        aria-label="Button"
+>
+  Button
+</button>
+`;
