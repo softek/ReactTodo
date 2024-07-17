@@ -35,6 +35,7 @@ module.exports = {
     },
   },
   rules:{
+    'linebreak-style': 'off',
     'import/prefer-default-export': 'off',
     'import/extensions': 'off',
     'react/require-default-props': 'off',
