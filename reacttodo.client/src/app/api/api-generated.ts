@@ -15,8 +15,8 @@ export type WeatherForecastGetApiResponse =
     /** status 200  */ WeatherForecast[];
 export type WeatherForecastGetApiRequest = void;
 export type WeatherForecast = {
-    date?: string;
-    temperatureC?: number;
-    temperatureF?: number;
+    date: string;
+    temperatureC: number;
+    temperatureF: number;
     summary?: string | null;
 };
