@@ -3,6 +3,7 @@
 exports[`Components/Button ComplexContent smoke-test 1`] = `
 <button type="button"
         aria-label="Button"
+        class="px-4 py-2 bg-cyan-500 text-white rounded-full shadow-sm"
 >
   <strong>
     Bold Button
@@ -13,6 +14,7 @@ exports[`Components/Button ComplexContent smoke-test 1`] = `
 exports[`Components/Button LabelAsContent play-test 1`] = `
 <button type="button"
         aria-label="Button"
+        class="px-4 py-2 bg-cyan-500 text-white rounded-full shadow-sm"
 >
   Button
 </button>

@@ -25,6 +25,7 @@ export function Button({ label, onClick, children }: ButtonProps) {
       type="button"
       aria-label={label}
       onClick={onClick}
+      className="px-4 py-2 bg-cyan-500 text-white rounded-full shadow-sm"
     >
       {children ?? label}
     </button>
