@@ -14,7 +14,7 @@ trim_trailing_whitespace = true
 [*.json]
 indent_size = 2
 
-[*.{js,ts,jsx,tsx}]
+[*.{js,ts,jsx,tsx,cjs}]
 quote_type = single
 indent_size = 2
 
