@@ -1,21 +1,11 @@
-import { useEffect, useState } from 'react';
 import './App.css';
+import { api } from './app/api/api-generated';
 
-interface Forecast {
-  date: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
-}
 
 function App() {
-  const [forecasts, setForecasts] = useState<Forecast[]>();
+  const { data, isLoading } = api.useWeatherForecastGetQuery()
 
-  useEffect(() => {
-    populateWeatherData();
-  }, []);
-
-  const contents = forecasts === undefined
+  const contents = isLoading
     ? <p><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationreact">https://aka.ms/jspsintegrationreact</a> for more details.</em></p>
     : <table className="table table-striped" aria-labelledby="tableLabel">
       <thead>
@@ -27,7 +17,7 @@ function App() {
         </tr>
       </thead>
       <tbody>
-        {forecasts.map(forecast =>
+        {data?.map(forecast =>
           <tr key={forecast.date}>
             <td>{forecast.date}</td>
             <td>{forecast.temperatureC}</td>
@@ -45,12 +35,6 @@ function App() {
       {contents}
     </div>
   );
-
-  async function populateWeatherData() {
-    const response = await fetch('weatherforecast');
-    const data = await response.json();
-    setForecasts(data);
-  }
 }
 
 export default App;
