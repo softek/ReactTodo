@@ -46,6 +46,7 @@
     "jest-image-snapshot": "^6.4.0",
     "storybook": "^8.2.4",
     "typescript": "^5.2.2",
-    "vite": "^5.3.4"
+    "vite": "^5.3.4",
+    "vite-plugin-eslint": "^1.8.1"
   }
 }
