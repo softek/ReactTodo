@@ -32,4 +32,8 @@
     <RemoveDir Directories="$(OutDir)References" />
   </Target>
 
+  <Target Name="APIGeneration" AfterTargets="NSwag" Condition="'$(Configuration)' == 'Debug'">
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npx @rtk-query/codegen-openapi .\src\app\api\openapi-config.json" />
+  </Target>
+
 </Project>

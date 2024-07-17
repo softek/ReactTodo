@@ -1,0 +1,9 @@
+{
+  "schemaFile": "../../../../ReactTodo.Server/wwwroot/api/specification.json",
+  "apiFile": "./api-base.ts",
+  "argSuffix": "ApiRequest",
+  "apiImport": "emptyApi",
+  "outputFile": "./api-generated.ts",
+  "exportName": "api",
+  "hooks": false
+}
