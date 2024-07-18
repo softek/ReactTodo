@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test-storybook": "test-storybook"
+    "test-storybook": "test-storybook",
+    "update-snapshots": "test-storybook -u"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.6",
