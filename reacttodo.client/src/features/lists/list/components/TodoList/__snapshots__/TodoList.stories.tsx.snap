@@ -1,48 +1,66 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Features/TodoList Default play-test 1`] = `
-<h1>
-  My List
-</h1>
-<ul class="list-group">
-  <li class="list-group-item">
-    <div class="form-check form-check-inline">
-      <input id="task-completion-1"
-             type="checkbox"
-             class="form-check-input"
+<div class="container-fluid">
+  <h1>
+    My List
+  </h1>
+  <form>
+    <div class="p-0 d-flex mb-4">
+      <input placeholder="New task"
+             name="name"
+             type="text"
+             class="form-control"
+             aria-invalid="false"
+             value
       >
-      <label for="task-completion-1"
-             class="form-check-label"
+      <button type="button"
+              class="btn btn-success"
       >
-        Task 1
-      </label>
+        Create Task
+      </button>
     </div>
-    <button type="button"
-            class="btn btn-secondary"
-            aria-label="Edit"
-    >
-      Edit
-    </button>
-  </li>
-  <li class="list-group-item">
-    <div class="form-check form-check-inline">
-      <input id="task-completion-2"
-             type="checkbox"
-             class="form-check-input"
-             checked
+  </form>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <div class="form-check form-check-inline">
+        <input id="task-completion-1"
+               type="checkbox"
+               class="form-check-input"
+        >
+        <label for="task-completion-1"
+               class="form-check-label"
+        >
+          Task 1
+        </label>
+      </div>
+      <button type="button"
+              class="btn btn-secondary"
+              aria-label="Edit"
       >
-      <label for="task-completion-2"
-             class="text-decoration-line-through form-check-label"
+        Edit
+      </button>
+    </li>
+    <li class="list-group-item">
+      <div class="form-check form-check-inline">
+        <input id="task-completion-2"
+               type="checkbox"
+               class="form-check-input"
+               checked
+        >
+        <label for="task-completion-2"
+               class="text-decoration-line-through form-check-label"
+        >
+          Task 2
+        </label>
+      </div>
+      <button type="button"
+              class="btn btn-danger"
+              aria-label="Delete"
       >
-        Task 2
-      </label>
-    </div>
-    <button type="button"
-            class="btn btn-danger"
-            aria-label="Delete"
-    >
-      Delete
-    </button>
-  </li>
-</ul>
+        Delete
+      </button>
+    </li>
+  </ul>
+</div>
 `;

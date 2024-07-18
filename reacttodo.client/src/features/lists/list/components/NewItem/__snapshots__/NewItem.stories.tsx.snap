@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Features/TodoList/NewItem Default play-test 1`] = `
+<form>
+  <div class="p-0 d-flex mb-4">
+    <input placeholder="New task"
+           name="name"
+           type="text"
+           class="form-control"
+           aria-invalid="false"
+           value
+    >
+    <button type="button"
+            class="btn btn-success"
+    >
+      Create Task
+    </button>
+  </div>
+</form>
+`;

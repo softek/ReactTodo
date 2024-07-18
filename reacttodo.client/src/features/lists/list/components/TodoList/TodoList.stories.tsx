@@ -15,6 +15,7 @@ const meta = {
   args: {
     onDeleteTask: fn(),
     onUpdateTask: fn(),
+    onCreateTask: fn(),
   },
 } satisfies Meta<typeof TodoList>;
 
@@ -45,12 +46,20 @@ export const Default: Story = {
     const editButton = canvas.getByRole('button', { name: /Edit/i });
     await expect(editButton).toBeInTheDocument();
     await userEvent.click(editButton);
-    const inputBox = canvas.getByRole('textbox');
-    await expect(inputBox).toBeInTheDocument();
-    await userEvent.clear(inputBox);
-    await userEvent.type(inputBox, 'Renamed Task 1');
+    const editBox = canvas.getByDisplayValue('Task 1');
+    await expect(editBox).toBeInTheDocument();
+    await userEvent.clear(editBox);
+    await userEvent.type(editBox, 'Renamed Task 1');
     const saveButton = canvas.getByRole('button', { name: /Save/i });
     await userEvent.click(saveButton);
     await waitFor(() => expect(args.onUpdateTask).toHaveBeenCalledWith({ id: '1', name: 'Renamed Task 1', isComplete: false }));
+
+    const createButton = canvas.getByRole('button', { name: /Create Task/i });
+    const newTaskBox = canvas.getByPlaceholderText('New task');
+    await expect(createButton).toBeInTheDocument();
+    await userEvent.type(newTaskBox, 'New Task Name');
+    await userEvent.click(createButton);
+    await waitFor(() => expect(args.onCreateTask).toHaveBeenCalledWith('New Task Name'));
+    await expect(newTaskBox).toHaveValue('');
   },
 };
