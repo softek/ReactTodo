@@ -15,6 +15,7 @@ const meta = {
   args: {
     onDelete: fn(),
     onToggle: fn(),
+    onRename: fn(),
   },
 } satisfies Meta<typeof TodoListItem>;
 
@@ -31,6 +32,24 @@ export const IncompleteTask: Story = {
     await expect(checkbox).toBeInTheDocument();
     await userEvent.click(checkbox);
     await waitFor(() => expect(args.onToggle).toHaveBeenCalled());
+
+    const editButton = canvas.getByRole('button', { name: /Edit/i });
+    await expect(editButton).toBeInTheDocument();
+    await userEvent.click(editButton);
+
+    const inputBox = canvas.getByRole('textbox');
+    await expect(inputBox).toBeInTheDocument();
+    await expect(inputBox).toHaveValue('Task 1');
+
+    const saveButton = canvas.getByRole('button', { name: /Save/i });
+    userEvent.clear(inputBox);
+    await userEvent.click(saveButton);
+    await expect(inputBox).toBeInTheDocument();
+
+    await userEvent.type(inputBox, 'Renamed Task 1');
+    await userEvent.click(saveButton);
+    await waitFor(() => expect(args.onRename).toHaveBeenCalledWith('Renamed Task 1'));
+    await expect(inputBox).not.toBeInTheDocument();
   },
 };
 
@@ -40,9 +59,9 @@ export const CompletedTask: Story = {
   },
   play: async ({ args, canvasElement }) => {
     const canvas = within(canvasElement);
-    const button = canvas.getByRole('button', { name: /Delete/i });
-    await expect(button).toBeInTheDocument();
-    await userEvent.click(button);
+    const deleteButton = canvas.getByRole('button', { name: /Delete/i });
+    await expect(deleteButton).toBeInTheDocument();
+    await userEvent.click(deleteButton);
     await waitFor(() => expect(args.onDelete).toHaveBeenCalled());
 
     const checkbox = canvas.getByRole('checkbox');
