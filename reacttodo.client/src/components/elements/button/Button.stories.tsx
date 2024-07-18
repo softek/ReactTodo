@@ -12,8 +12,8 @@ const meta = {
   parameters: {
     layout: 'centered',
   },
-  tags: ['autodocs'],
   argTypes: {
+    children: { control: 'text' },
   },
   args: { onClick: fn() },
 } satisfies Meta<typeof Button>;
@@ -21,6 +21,9 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+/**
+ * When a label is provided but no children, the label will be used as the button content.
+ */
 export const LabelAsContent: Story = {
   args: {
     label: 'Button',
@@ -34,9 +37,35 @@ export const LabelAsContent: Story = {
   },
 };
 
+/**
+ * Buttons can contain any JSX content that is allowed under a button element.
+ * This allows for text formatting or images to be included.
+ */
 export const ComplexContent: Story = {
   args: {
     label: 'Button',
     children: <strong>Bold Button</strong>,
   },
+};
+
+/**
+ * There are several types of buttons available.
+ */
+export const Types: Story = {
+  args: {
+    label: 'Button',
+  },
+  render: () => (
+    <div>
+      <Button type="primary" label="primary" />
+      <Button type="secondary" label="secondary" />
+      <Button type="success" label="success" />
+      <Button type="danger" label="danger" />
+      <Button type="warning" label="warning" />
+      <Button type="info" label="info" />
+      <Button type="light" label="light" />
+      <Button type="dark" label="dark" />
+      <Button type="link" label="link" />
+    </div>
+  ),
 };

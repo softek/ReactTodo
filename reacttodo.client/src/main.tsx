@@ -4,6 +4,8 @@ import { Provider } from 'react-redux';
 import App from './App.tsx';
 import { store } from './app/api/store';
 import './index.css';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

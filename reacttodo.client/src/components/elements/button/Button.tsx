@@ -1,4 +1,7 @@
 import React from 'react';
+import { Button as BoostrapButton } from 'reactstrap';
+
+export type ButtonType = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark' | 'link';
 
 export interface ButtonProps {
   /**
@@ -11,22 +14,28 @@ export interface ButtonProps {
    */
   onClick?: () => void;
   /**
-   * Button contents, can be any valid JSX that can be nested under a <button> element
+   * Button contents, can be any valid JSX that can be nested under a button element
    */
   children?: React.ReactNode;
+  /**
+   * Sets the color/type of the button.
+   */
+  type?: ButtonType;
 }
 
 /**
  * Button component that supports text and JSX content.
  */
-export function Button({ label, onClick, children }: ButtonProps) {
+export function Button({
+  label, onClick, type, children,
+}: ButtonProps) {
   return (
-    <button
-      type="button"
+    <BoostrapButton
+      color={type}
       aria-label={label}
       onClick={onClick}
     >
       {children ?? label}
-    </button>
+    </BoostrapButton>
   );
 }

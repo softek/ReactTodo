@@ -1,5 +1,8 @@
 import type { Preview } from "@storybook/react";
 
+import '../src/index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 const preview: Preview = {
   parameters: {
     controls: {
@@ -9,6 +12,7 @@ const preview: Preview = {
       },
     },
   },
+  tags: ['autodocs'],
 };
 
 export default preview;

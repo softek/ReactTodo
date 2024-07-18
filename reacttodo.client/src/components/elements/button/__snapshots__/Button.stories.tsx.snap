@@ -2,6 +2,7 @@
 
 exports[`Components/Button ComplexContent smoke-test 1`] = `
 <button type="button"
+        class="btn btn-secondary"
         aria-label="Button"
 >
   <strong>
@@ -12,8 +13,59 @@ exports[`Components/Button ComplexContent smoke-test 1`] = `
 
 exports[`Components/Button LabelAsContent play-test 1`] = `
 <button type="button"
+        class="btn btn-secondary"
         aria-label="Button"
 >
   Button
 </button>
+`;
+
+exports[`Components/Button Types smoke-test 1`] = `
+<div>
+  <button class="btn btn-primary"
+          aria-label="primary"
+  >
+    primary
+  </button>
+  <button class="btn btn-secondary"
+          aria-label="secondary"
+  >
+    secondary
+  </button>
+  <button class="btn btn-success"
+          aria-label="success"
+  >
+    success
+  </button>
+  <button class="btn btn-danger"
+          aria-label="danger"
+  >
+    danger
+  </button>
+  <button class="btn btn-warning"
+          aria-label="warning"
+  >
+    warning
+  </button>
+  <button class="btn btn-info"
+          aria-label="info"
+  >
+    info
+  </button>
+  <button class="btn btn-light"
+          aria-label="light"
+  >
+    light
+  </button>
+  <button class="btn btn-dark"
+          aria-label="dark"
+  >
+    dark
+  </button>
+  <button class="btn btn-link"
+          aria-label="link"
+  >
+    link
+  </button>
+</div>
 `;
