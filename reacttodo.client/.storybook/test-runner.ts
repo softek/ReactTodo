@@ -14,7 +14,7 @@ const config: TestRunnerConfig = {
     expect(innerHTML).toMatchSnapshot();
 
     // To capture a screenshot for for different browsers, add page.context().browser().browserType().name() to get the browser name to prefix the file name
-    const image = await page.screenshot();
+    const image = await page.screenshot({animations: "disabled"});
     expect(image).toMatchImageSnapshot({
       customSnapshotIdentifier: context.id,
     });
