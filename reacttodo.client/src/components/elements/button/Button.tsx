@@ -3,7 +3,7 @@ import { Button as BoostrapButton } from 'reactstrap';
 
 export type ButtonType = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark' | 'link';
 
-export interface ButtonProps {
+export type ButtonProps = {
   /**
    * Button label. Will be used for button content if children are not provided.
    * Always used as aria-label.
