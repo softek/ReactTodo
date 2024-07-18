@@ -1,13 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Features/TodoListItem CompletedTask play-test 1`] = `
+exports[`Features/TodoList/TodoListItem CompletedTask play-test 1`] = `
 <li class="list-group-item">
   <div class="form-check form-check-inline">
-    <input type="checkbox"
+    <input id="task-completion-1"
+           type="checkbox"
            class="form-check-input"
            checked
     >
-    <label class="text-decoration-line-through form-check-label">
+    <label for="task-completion-1"
+           class="text-decoration-line-through form-check-label"
+    >
       Task 1
     </label>
   </div>
@@ -20,13 +23,16 @@ exports[`Features/TodoListItem CompletedTask play-test 1`] = `
 </li>
 `;
 
-exports[`Features/TodoListItem IncompleteTask play-test 1`] = `
+exports[`Features/TodoList/TodoListItem IncompleteTask play-test 1`] = `
 <li class="list-group-item">
   <div class="form-check form-check-inline">
-    <input type="checkbox"
+    <input id="task-completion-1"
+           type="checkbox"
            class="form-check-input"
     >
-    <label class="form-check-label">
+    <label for="task-completion-1"
+           class="form-check-label"
+    >
       Task 1
     </label>
   </div>

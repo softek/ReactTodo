@@ -5,12 +5,7 @@ import {
 } from 'reactstrap';
 import { Controller, useForm } from 'react-hook-form';
 import { Button } from '../../../../../components';
-
-export type TodoTask = {
-  id: string;
-  name: string;
-  isComplete: boolean;
-}
+import { TodoTask } from '../../../../../data';
 
 export type TodoListItemProps = {
   task: TodoTask;
@@ -83,6 +78,8 @@ export function TodoListItem({
     setIsEditing(false);
   };
 
+  const id = `task-completion-${task.id}`;
+
   return (
     <ListGroupItem>
       {
@@ -97,11 +94,12 @@ export function TodoListItem({
                 inline
               >
                 <Input
+                  id={id}
                   type="checkbox"
                   checked={task.isComplete}
                   onClick={onToggle}
                 />
-                <Label check className={textClass}>
+                <Label check for={id} className={textClass}>
                   {task.name}
                 </Label>
               </FormGroup>

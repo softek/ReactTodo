@@ -5,7 +5,7 @@ import {
 import { TodoListItem } from './TodoListItem';
 
 const meta = {
-  title: 'Features/TodoListItem',
+  title: 'Features/TodoList/TodoListItem',
   component: TodoListItem,
   parameters: {
     layout: 'centered',
@@ -45,6 +45,7 @@ export const IncompleteTask: Story = {
     userEvent.clear(inputBox);
     await userEvent.click(saveButton);
     await expect(inputBox).toBeInTheDocument();
+    await expect(args.onRename).not.toHaveBeenCalled();
 
     await userEvent.type(inputBox, 'Renamed Task 1');
     await userEvent.click(saveButton);
