@@ -1,6 +1,7 @@
 import React from 'react';
-import { Button, Input } from 'reactstrap';
+import { Input } from 'reactstrap';
 import { Controller, useForm } from 'react-hook-form';
+import { Button } from '../../../../components';
 
 type NewListProps = {
   onCreateList: (name: string) => void;
@@ -40,7 +41,11 @@ export function NewList({ onCreateList: onCreateTask }: NewListProps) {
             />
           )}
         />
-        <Button color="success" onClick={handleSubmit(onSubmit)}>Create List</Button>
+        <Button
+          type="success"
+          label="Create List"
+          onClick={handleSubmit(onSubmit)}
+        />
       </div>
     </form>
   );

@@ -12,6 +12,7 @@ exports[`Features/TodoList/NewItem Default play-test 1`] = `
     >
     <button type="button"
             class="btn btn-success"
+            aria-label="Create Task"
     >
       Create Task
     </button>

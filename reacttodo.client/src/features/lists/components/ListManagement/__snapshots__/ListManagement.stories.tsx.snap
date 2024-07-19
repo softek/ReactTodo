@@ -13,6 +13,7 @@ exports[`Features/ListManagement Default play-test 1`] = `
       >
       <button type="button"
               class="btn btn-success"
+              aria-label="Create List"
       >
         Create List
       </button>
