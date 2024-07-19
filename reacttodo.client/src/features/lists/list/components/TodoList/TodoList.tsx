@@ -25,7 +25,7 @@ export function TodoList({
             key={task.id}
             task={task}
             onDelete={() => onDeleteTask(task.id)}
-            onToggle={() => onUpdateTask({ ...task, isComplete: !task.isComplete })}
+            onToggle={() => onUpdateTask({ ...task, isCompleted: !task.isCompleted })}
             onRename={(newName) => onUpdateTask({ ...task, name: newName })}
           />
         ))}

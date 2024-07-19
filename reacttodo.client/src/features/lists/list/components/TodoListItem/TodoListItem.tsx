@@ -70,7 +70,7 @@ export function TodoListItem({
   onToggle,
   onRename,
 }: TodoListItemProps) {
-  const textClass = task.isComplete ? 'text-decoration-line-through' : '';
+  const textClass = task.isCompleted ? 'text-decoration-line-through' : '';
   const [isEditing, setIsEditing] = useState(false);
 
   const handleRename = (name: string) => {
@@ -96,21 +96,21 @@ export function TodoListItem({
                 <Input
                   id={id}
                   type="checkbox"
-                  checked={task.isComplete}
+                  checked={task.isCompleted}
                   onClick={onToggle}
                 />
                 <Label check for={id} className={textClass}>
                   {task.name}
                 </Label>
               </FormGroup>
-              {task.isComplete && (
+              {task.isCompleted && (
                 <Button
                   label="Delete"
                   type="danger"
                   onClick={onDelete}
                 />
               )}
-              {!task.isComplete && (
+              {!task.isCompleted && (
                 <Button
                   label="Edit"
                   type="secondary"

@@ -20,12 +20,16 @@ exports[`Features/ListManagement Default play-test 1`] = `
     </div>
   </form>
   <ul class="list-group">
-    <button class="list-group-item-action list-group-item">
-      List 1
-    </button>
-    <button class="list-group-item-action list-group-item">
-      List 2
-    </button>
+    <li class="list-group-item-action list-group-item">
+      <a href="/list/1">
+        List 1
+      </a>
+    </li>
+    <li class="list-group-item-action list-group-item">
+      <a href="/list/2">
+        List 2
+      </a>
+    </li>
   </ul>
 </div>
 `;

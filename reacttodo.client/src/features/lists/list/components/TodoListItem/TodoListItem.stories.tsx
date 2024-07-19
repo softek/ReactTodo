@@ -24,7 +24,7 @@ type Story = StoryObj<typeof meta>;
 
 export const IncompleteTask: Story = {
   args: {
-    task: { id: '1', name: 'Task 1', isComplete: false },
+    task: { id: '1', name: 'Task 1', isCompleted: false },
   },
   play: async ({ args, canvasElement }) => {
     const canvas = within(canvasElement);
@@ -56,7 +56,7 @@ export const IncompleteTask: Story = {
 
 export const CompletedTask: Story = {
   args: {
-    task: { id: '1', name: 'Task 1', isComplete: true },
+    task: { id: '1', name: 'Task 1', isCompleted: true },
   },
   play: async ({ args, canvasElement }) => {
     const canvas = within(canvasElement);

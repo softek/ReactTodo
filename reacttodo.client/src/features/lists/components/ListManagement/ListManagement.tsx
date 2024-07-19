@@ -1,5 +1,6 @@
 import React from 'react';
 import { ListGroup, ListGroupItem } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import { TodoList } from '../../../../data';
 import { NewList } from '../NewList';
 
@@ -17,9 +18,10 @@ export function ListManagement({ lists, onCreateList }: ListManagementProps) {
           <ListGroupItem
             key={list.id}
             action
-            tag="button"
           >
-            {list.name}
+            <Link to={`list/${list.id}`}>
+              {list.name}
+            </Link>
           </ListGroupItem>
         ))}
       </ListGroup>

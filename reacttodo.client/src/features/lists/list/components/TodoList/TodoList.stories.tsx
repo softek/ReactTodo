@@ -26,8 +26,8 @@ export const Default: Story = {
   args: {
     name: 'My List',
     tasks: [
-      { id: '1', name: 'Task 1', isComplete: false },
-      { id: '2', name: 'Task 2', isComplete: true },
+      { id: '1', name: 'Task 1', isCompleted: false },
+      { id: '2', name: 'Task 2', isCompleted: true },
     ],
   },
   play: async ({ args, canvasElement }) => {
