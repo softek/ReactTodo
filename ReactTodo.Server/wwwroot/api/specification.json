@@ -32,7 +32,7 @@
     "/api/v1/todolists": {
       "post": {
         "tags": [
-          "CreateTodoList"
+          "TodoLists"
         ],
         "operationId": "CreateTodoList_Handle",
         "requestBody": {
@@ -62,7 +62,7 @@
       },
       "get": {
         "tags": [
-          "ListTodoLists"
+          "TodoLists"
         ],
         "operationId": "ListTodoLists_Handle",
         "responses": {

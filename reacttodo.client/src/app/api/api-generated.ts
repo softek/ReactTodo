@@ -1,31 +1,39 @@
 import { emptyApi as api } from "./api-base";
-const injectedRtkApi = api.injectEndpoints({
-    endpoints: (build) => ({
-        weatherForecastGet: build.query<
-            WeatherForecastGetApiResponse,
-            WeatherForecastGetApiRequest
-        >({
-            query: () => ({ url: `/WeatherForecast` }),
-        }),
-        createTodoListHandle: build.mutation<
-            CreateTodoListHandleApiResponse,
-            CreateTodoListHandleApiRequest
-        >({
-            query: (queryArg) => ({
-                url: `/api/v1/todolists`,
-                method: "POST",
-                body: queryArg.todoListCreateDto,
+export const addTagTypes = ["WeatherForecast", "TodoLists"] as const;
+const injectedRtkApi = api
+    .enhanceEndpoints({
+        addTagTypes,
+    })
+    .injectEndpoints({
+        endpoints: (build) => ({
+            weatherForecastGet: build.query<
+                WeatherForecastGetApiResponse,
+                WeatherForecastGetApiRequest
+            >({
+                query: () => ({ url: `/WeatherForecast` }),
+                providesTags: ["WeatherForecast"],
+            }),
+            createTodoListHandle: build.mutation<
+                CreateTodoListHandleApiResponse,
+                CreateTodoListHandleApiRequest
+            >({
+                query: (queryArg) => ({
+                    url: `/api/v1/todolists`,
+                    method: "POST",
+                    body: queryArg.todoListCreateDto,
+                }),
+                invalidatesTags: ["TodoLists"],
+            }),
+            listTodoListsHandle: build.query<
+                ListTodoListsHandleApiResponse,
+                ListTodoListsHandleApiRequest
+            >({
+                query: () => ({ url: `/api/v1/todolists` }),
+                providesTags: ["TodoLists"],
             }),
         }),
-        listTodoListsHandle: build.query<
-            ListTodoListsHandleApiResponse,
-            ListTodoListsHandleApiRequest
-        >({
-            query: () => ({ url: `/api/v1/todolists` }),
-        }),
-    }),
-    overrideExisting: false,
-});
+        overrideExisting: false,
+    });
 export { injectedRtkApi as api };
 export type WeatherForecastGetApiResponse =
     /** status 200  */ WeatherForecast[];

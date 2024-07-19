@@ -1,5 +1,6 @@
 using Ardalis.ApiEndpoints;
 using Microsoft.AspNetCore.Mvc;
+using NSwag.Annotations;
 using ReactTodo.App;
 using ReactTodo.Core.Entities;
 using ReactTodo.SharedKernel;
@@ -12,6 +13,7 @@ public class ListTodoLists(IRepository<TodoList> todoListRepository) : EndpointB
 {
     private readonly IRepository<TodoList> _todoListRepository = todoListRepository;
 
+    [OpenApiTag("TodoLists")]
     [HttpGet("api/v1/todolists")]
     public override async Task<ActionResult<IEnumerable<TodoListDto>>> HandleAsync(
         CancellationToken cancellationToken = new())

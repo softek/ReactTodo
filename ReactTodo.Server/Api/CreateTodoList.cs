@@ -1,5 +1,6 @@
 using Ardalis.ApiEndpoints;
 using Microsoft.AspNetCore.Mvc;
+using NSwag.Annotations;
 using ReactTodo.App;
 using ReactTodo.Core.Entities;
 using ReactTodo.SharedKernel;
@@ -19,6 +20,7 @@ public class CreateTodoList(IRepository<TodoList> todoListRepository) : Endpoint
             statusCode: 500,
             httpContext: ctx));
 
+    [OpenApiTag("TodoLists")]
     [ProducesResponseType(typeof(TodoListDto), 200)]
     [HttpPost(CreateTodoListRequest.Route)]
     public override async Task<ActionResult<TodoListDto>> HandleAsync(
