@@ -3,9 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactTodo.Server", "ReactTodo.Server\ReactTodo.Server.csproj", "{53489701-BF63-4502-9DF6-5A74CDE526F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReactTodo.Server", "ReactTodo.Server\ReactTodo.Server.csproj", "{53489701-BF63-4502-9DF6-5A74CDE526F8}"
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "reacttodo.client", "reacttodo.client\reacttodo.client.esproj", "{6001FAC6-2566-4386-8A09-6315F59B3CD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactTodo.Core", "ReactTodo.Core\ReactTodo.Core.csproj", "{9F15A4E9-AF61-4868-ABD8-C1785CC4DFC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactTodo.Core.Infrastructure", "ReactTodo.Core.Infrastructure\ReactTodo.Core.Infrastructure.csproj", "{82A5960A-3968-4E23-BBE8-4961E2F54895}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactTodo.App", "ReactTodo.App\ReactTodo.App.csproj", "{077A6076-5623-413B-9338-4D8A92733151}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactTodo", "ReactTodo\ReactTodo.csproj", "{30828EFB-6A0B-469B-8244-8AB4B6035A1A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +31,22 @@ Global
 		{6001FAC6-2566-4386-8A09-6315F59B3CD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6001FAC6-2566-4386-8A09-6315F59B3CD3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6001FAC6-2566-4386-8A09-6315F59B3CD3}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{9F15A4E9-AF61-4868-ABD8-C1785CC4DFC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F15A4E9-AF61-4868-ABD8-C1785CC4DFC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F15A4E9-AF61-4868-ABD8-C1785CC4DFC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F15A4E9-AF61-4868-ABD8-C1785CC4DFC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82A5960A-3968-4E23-BBE8-4961E2F54895}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82A5960A-3968-4E23-BBE8-4961E2F54895}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82A5960A-3968-4E23-BBE8-4961E2F54895}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82A5960A-3968-4E23-BBE8-4961E2F54895}.Release|Any CPU.Build.0 = Release|Any CPU
+		{077A6076-5623-413B-9338-4D8A92733151}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{077A6076-5623-413B-9338-4D8A92733151}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{077A6076-5623-413B-9338-4D8A92733151}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{077A6076-5623-413B-9338-4D8A92733151}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30828EFB-6A0B-469B-8244-8AB4B6035A1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30828EFB-6A0B-469B-8244-8AB4B6035A1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30828EFB-6A0B-469B-8244-8AB4B6035A1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30828EFB-6A0B-469B-8244-8AB4B6035A1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

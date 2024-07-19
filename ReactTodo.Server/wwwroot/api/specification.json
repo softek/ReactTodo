@@ -28,6 +28,59 @@
           }
         }
       }
+    },
+    "/api/v1/todolists": {
+      "post": {
+        "tags": [
+          "CreateTodoList"
+        ],
+        "operationId": "CreateTodoList_Handle",
+        "requestBody": {
+          "x-name": "Data",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TodoListCreateDto"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TodoListDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "ListTodoLists"
+        ],
+        "operationId": "ListTodoLists_Handle",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TodoListDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -56,6 +109,35 @@
           "summary": {
             "type": "string",
             "nullable": true
+          }
+        }
+      },
+      "TodoListDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "guid"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "TodoListCreateDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
           }
         }
       }
