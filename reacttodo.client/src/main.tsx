@@ -1,16 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
-import App from './App.tsx';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { store } from './app/api/store';
 import './index.css';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Lists } from './features/lists';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Lists />,
+  },
+]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <RouterProvider router={router} />
     </Provider>
   </React.StrictMode>,
 );
