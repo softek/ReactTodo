@@ -6,29 +6,6 @@
     "version": "1.0.0"
   },
   "paths": {
-    "/WeatherForecast": {
-      "get": {
-        "tags": [
-          "WeatherForecast"
-        ],
-        "operationId": "WeatherForecast_Get",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/api/v1/todolists": {
       "post": {
         "tags": [
@@ -85,33 +62,6 @@
   },
   "components": {
     "schemas": {
-      "WeatherForecast": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "date",
-          "temperatureC",
-          "temperatureF"
-        ],
-        "properties": {
-          "date": {
-            "type": "string",
-            "format": "date"
-          },
-          "temperatureC": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "temperatureF": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "summary": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
       "TodoListDto": {
         "type": "object",
         "additionalProperties": false,
