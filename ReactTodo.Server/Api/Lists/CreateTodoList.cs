@@ -5,7 +5,7 @@ using ReactTodo.App;
 using ReactTodo.Core.Entities;
 using ReactTodo.SharedKernel;
 
-namespace ReactTodo.Server.Api;
+namespace ReactTodo.Server.Api.Lists;
 
 public class CreateTodoList(IRepository<TodoList> todoListRepository) : EndpointBaseAsync
     .WithRequest<CreateTodoListRequest>

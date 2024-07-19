@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using ReactTodo.App;
 
-namespace ReactTodo.Server.Api;
+namespace ReactTodo.Server.Api.Lists;
 
 public class CreateTodoListRequest
 {

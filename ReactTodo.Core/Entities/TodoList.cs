@@ -5,7 +5,7 @@ namespace ReactTodo.Core.Entities;
 
 public class TodoList : BaseEntity, IAggregateRoot
 {
-    private List<TodoTask> _items = [];
+    private readonly List<TodoTask> _tasks = [];
 
 #pragma warning disable CS8618
     protected TodoList() {/* Required for EF */}
@@ -16,11 +16,11 @@ public class TodoList : BaseEntity, IAggregateRoot
 
     public string Name { get; private set; }
 
-    public IEnumerable<TodoTask> Tasks => _items.AsReadOnly();
+    public IEnumerable<TodoTask> Tasks => _tasks;
 
     public void AddItem(TodoTask task) =>
-        _items.Add(Guard.Against.Null(task));
+        _tasks.Add(Guard.Against.Null(task));
 
     public void RemoveItem(TodoTask task) =>
-        _items.Remove(Guard.Against.Null(task));
+        _tasks.Remove(Guard.Against.Null(task));
 }
