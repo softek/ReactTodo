@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Features/ListManagement Default play-test 1`] = `
+<div>
+  <form>
+    <div class="p-0 d-flex mb-4">
+      <input placeholder="New list"
+             name="name"
+             type="text"
+             class="form-control"
+             aria-invalid="false"
+             value
+      >
+      <button type="button"
+              class="btn btn-success"
+      >
+        Create List
+      </button>
+    </div>
+  </form>
+  <ul class="list-group">
+    <button class="list-group-item-action list-group-item">
+      List 1
+    </button>
+    <button class="list-group-item-action list-group-item">
+      List 2
+    </button>
+  </ul>
+</div>
+`;
