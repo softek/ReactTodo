@@ -17,15 +17,6 @@ const injectedRtkApi = api
                 }),
                 invalidatesTags: ["TodoTasks"],
             }),
-            listTodoTasksHandle: build.query<
-                ListTodoTasksHandleApiResponse,
-                ListTodoTasksHandleApiRequest
-            >({
-                query: (queryArg) => ({
-                    url: `/api/v1/todolists/${queryArg.listId}/tasks`,
-                }),
-                providesTags: ["TodoTasks"],
-            }),
             deleteTodoTaskHandle: build.mutation<
                 DeleteTodoTaskHandleApiResponse,
                 DeleteTodoTaskHandleApiRequest
@@ -65,6 +56,15 @@ const injectedRtkApi = api
                 query: () => ({ url: `/api/v1/todolists` }),
                 providesTags: ["TodoLists"],
             }),
+            getTodoListDetailsHandle: build.query<
+                GetTodoListDetailsHandleApiResponse,
+                GetTodoListDetailsHandleApiRequest
+            >({
+                query: (queryArg) => ({
+                    url: `/api/v1/todolists/${queryArg.listId}`,
+                }),
+                providesTags: ["TodoTasks"],
+            }),
         }),
         overrideExisting: false,
     });
@@ -73,10 +73,6 @@ export type CreateTodoTaskHandleApiResponse = /** status 200  */ TodoTaskDto;
 export type CreateTodoTaskHandleApiRequest = {
     listId: string;
     todoTaskCreateDto: TodoTaskCreateDto;
-};
-export type ListTodoTasksHandleApiResponse = /** status 200  */ TodoTaskDto[];
-export type ListTodoTasksHandleApiRequest = {
-    listId: string;
 };
 export type DeleteTodoTaskHandleApiResponse = unknown;
 export type DeleteTodoTaskHandleApiRequest = {
@@ -95,6 +91,11 @@ export type CreateTodoListHandleApiRequest = {
 };
 export type ListTodoListsHandleApiResponse = /** status 200  */ TodoListDto[];
 export type ListTodoListsHandleApiRequest = void;
+export type GetTodoListDetailsHandleApiResponse =
+    /** status 200  */ TodoListDetailDto;
+export type GetTodoListDetailsHandleApiRequest = {
+    listId: string;
+};
 export type TodoTaskDto = {
     id: string;
     name: string;
@@ -113,4 +114,9 @@ export type TodoListDto = {
 };
 export type TodoListCreateDto = {
     name: string;
+};
+export type TodoListDetailDto = {
+    id: string;
+    name: string;
+    tasks: TodoTaskDto[];
 };

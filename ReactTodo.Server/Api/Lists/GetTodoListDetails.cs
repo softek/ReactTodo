@@ -6,19 +6,19 @@ using ReactTodo.Core.Entities;
 using ReactTodo.Core.Entities.Specifications;
 using ReactTodo.SharedKernel;
 
-namespace ReactTodo.Server.Api.Tasks;
+namespace ReactTodo.Server.Api.Lists;
 
-public class ListTodoTasks(IRepository<TodoList> todoListRepository) : EndpointBaseAsync
-    .WithRequest<ListTasksRequest>
-    .WithActionResult<IEnumerable<TodoTaskDto>>
+public class GetTodoListDetails(IRepository<TodoList> todoListRepository) : EndpointBaseAsync
+    .WithRequest<GetTodoListDetailsRequest>
+    .WithActionResult<TodoListDetailDto>
 
 {
     private readonly IRepository<TodoList> _todoListRepository = todoListRepository;
 
     [OpenApiTag("TodoTasks")]
-    [HttpGet(ListTasksRequest.Route)]
-    public override async Task<ActionResult<IEnumerable<TodoTaskDto>>> HandleAsync(
-        ListTasksRequest request,
+    [HttpGet(GetTodoListDetailsRequest.Route)]
+    public override async Task<ActionResult<TodoListDetailDto>> HandleAsync(
+        GetTodoListDetailsRequest request,
         CancellationToken cancellationToken = new())
     {
         var list = await _todoListRepository.FirstOrDefaultAsync(
@@ -28,7 +28,7 @@ public class ListTodoTasks(IRepository<TodoList> todoListRepository) : EndpointB
         if (list is null)
             return NotFound();
 
-        var response = list.Tasks.Select(t => t.ToTodoTaskDto());
+        var response = list.ToTodoListDetailDto();
 
         return Ok(response);
     }

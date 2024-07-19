@@ -48,39 +48,6 @@
             }
           }
         }
-      },
-      "get": {
-        "tags": [
-          "TodoTasks"
-        ],
-        "operationId": "ListTodoTasks_Handle",
-        "parameters": [
-          {
-            "name": "ListId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "guid"
-            },
-            "x-position": 1
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/TodoTaskDto"
-                  }
-                }
-              }
-            }
-          }
-        }
       }
     },
     "/api/v1/todolists/{ListId}/tasks/{TaskId}": {
@@ -230,6 +197,38 @@
           }
         }
       }
+    },
+    "/api/v1/todolists/{ListId}": {
+      "get": {
+        "tags": [
+          "TodoTasks"
+        ],
+        "operationId": "GetTodoListDetails_Handle",
+        "parameters": [
+          {
+            "name": "ListId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TodoListDetailDto"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -309,6 +308,30 @@
         "properties": {
           "name": {
             "type": "string"
+          }
+        }
+      },
+      "TodoListDetailDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "tasks"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "guid"
+          },
+          "name": {
+            "type": "string"
+          },
+          "tasks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TodoTaskDto"
+            }
           }
         }
       }

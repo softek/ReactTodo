@@ -11,15 +11,15 @@ export function List() {
     throw new Error('List ID is required');
   }
 
-  const { data } = api.useListTodoTasksHandleQuery({ listId });
+  const { data } = api.useGetTodoListDetailsHandleQuery({ listId });
   const [deleteTask] = api.useDeleteTodoTaskHandleMutation();
   const [updateTask] = api.useUpdateTodoTaskHandleMutation();
   const [createTask] = api.useCreateTodoTaskHandleMutation();
 
   return (
     <TodoList
-      name="List"
-      tasks={data ?? []}
+      name={data?.name ?? ''}
+      tasks={data?.tasks ?? []}
       onDeleteTask={(id) => deleteTask({ listId, taskId: id })}
       onUpdateTask={(task) => updateTask({ listId, taskId: task.id, todoTaskUpdateDto: task })}
       onCreateTask={(name) => createTask({ listId, todoTaskCreateDto: { name } })}
