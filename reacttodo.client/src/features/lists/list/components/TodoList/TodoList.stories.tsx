@@ -36,7 +36,7 @@ export const Default: Story = {
     const box = canvas.getByLabelText('Task 1');
     await expect(box).toBeInTheDocument();
     userEvent.click(box);
-    await waitFor(() => expect(args.onUpdateTask).toHaveBeenCalledWith({ id: '1', name: 'Task 1', isComplete: true }));
+    await waitFor(() => expect(args.onUpdateTask).toHaveBeenCalledWith({ id: '1', name: 'Task 1', isCompleted: true }));
 
     const deleteButton = canvas.getByRole('button', { name: /Delete/i });
     await expect(deleteButton).toBeInTheDocument();
@@ -52,7 +52,7 @@ export const Default: Story = {
     await userEvent.type(editBox, 'Renamed Task 1');
     const saveButton = canvas.getByRole('button', { name: /Save/i });
     await userEvent.click(saveButton);
-    await waitFor(() => expect(args.onUpdateTask).toHaveBeenCalledWith({ id: '1', name: 'Renamed Task 1', isComplete: false }));
+    await waitFor(() => expect(args.onUpdateTask).toHaveBeenCalledWith({ id: '1', name: 'Renamed Task 1', isCompleted: false }));
 
     const createButton = canvas.getByRole('button', { name: /Create Task/i });
     const newTaskBox = canvas.getByPlaceholderText('New task');
