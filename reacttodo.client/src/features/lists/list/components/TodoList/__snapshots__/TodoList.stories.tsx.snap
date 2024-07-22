@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Features/TodoList Default play-test 1`] = `
-<div class="container-fluid">
+<div>
   <h1>
     My List
   </h1>

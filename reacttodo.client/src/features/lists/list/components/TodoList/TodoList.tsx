@@ -16,7 +16,7 @@ export function TodoList({
   name, tasks, onDeleteTask, onUpdateTask, onCreateTask,
 }: TodoLisProps) {
   return (
-    <div className="container-fluid">
+    <div>
       <h1>{name}</h1>
       <NewItem onCreateTask={(task) => onCreateTask(task)} />
       <ListGroup>
