@@ -6,18 +6,14 @@ import { store } from './app/api/store';
 import './index.css';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Lists } from './features/lists';
-import { List } from './features/lists/list';
+import { Lists, routes as ListRoutes } from './features/lists';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Lists />,
   },
-  {
-    path: '/list/:listId',
-    element: <List />,
-  },
+  ...ListRoutes,
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
