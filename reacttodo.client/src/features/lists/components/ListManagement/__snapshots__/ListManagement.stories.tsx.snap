@@ -33,3 +33,33 @@ exports[`Features/ListManagement Default play-test 1`] = `
   </ul>
 </div>
 `;
+
+exports[`Features/ListManagement Loading smoke-test 1`] = `
+<div style="width: 300px;">
+  <div class="p-0 d-flex mb-4">
+    <input disabled
+           type="text"
+           class="placeholder form-control"
+    >
+    <a tabindex="-1"
+       class="btn btn-success disabled placeholder col-4"
+       aria-hidden="true"
+    >
+    </a>
+  </div>
+  <ul class="placeholder-glow list-group">
+    <li class="list-group-item">
+      <span class="placeholder col-12 placeholder-lg">
+      </span>
+    </li>
+    <li class="list-group-item">
+      <span class="placeholder col-12 placeholder-lg">
+      </span>
+    </li>
+    <li class="list-group-item">
+      <span class="placeholder col-12 placeholder-lg">
+      </span>
+    </li>
+  </ul>
+</div>
+`;

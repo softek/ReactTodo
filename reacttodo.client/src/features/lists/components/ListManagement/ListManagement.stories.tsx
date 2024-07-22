@@ -14,6 +14,7 @@ const meta = {
   },
   args: {
     onCreateList: fn(),
+    isLoading: false,
   },
 } satisfies Meta<typeof ListManagement>;
 
@@ -40,5 +41,12 @@ export const Default: Story = {
     await userEvent.click(createButton);
     await waitFor(() => expect(args.onCreateList).toHaveBeenCalledWith('New List Name'));
     await expect(inputBox).toHaveValue('');
+  },
+};
+
+export const Loading: Story = {
+  args: {
+    lists: [],
+    isLoading: true,
   },
 };

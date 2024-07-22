@@ -3,13 +3,14 @@ import { api } from '../../app/api';
 import { ListManagement } from './components/ListManagement';
 
 export function Lists() {
-  const { data } = api.useListTodoListsHandleQuery();
+  const { data, isLoading } = api.useListTodoListsHandleQuery();
   const [createList] = api.useCreateTodoListHandleMutation();
 
   return (
     <ListManagement
       lists={data ?? []}
       onCreateList={(name) => createList({ todoListCreateDto: { name } })}
+      isLoading={isLoading}
     />
   );
 }
