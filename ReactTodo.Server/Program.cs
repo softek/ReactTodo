@@ -1,4 +1,5 @@
 using ReactTodo.Core.Infrastructure;
+using ReactTodo.Server.Api;
 using ReactTodo.Server.NSwag;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -37,5 +38,7 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.MapFallbackToFile("/index.html");
+
+app.MapTodoListsEndpoints();
 
 app.Run();

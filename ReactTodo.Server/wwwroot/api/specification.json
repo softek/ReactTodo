@@ -6,7 +6,7 @@
     "version": "1.0.0"
   },
   "paths": {
-    "/api/v1/todolists/{ListId}/tasks": {
+    "/api/v1/todolists/{listId}/tasks": {
       "post": {
         "tags": [
           "TodoTasks"
@@ -14,7 +14,7 @@
         "operationId": "CreateTodoTask_Handle",
         "parameters": [
           {
-            "name": "ListId",
+            "name": "listId",
             "in": "path",
             "required": true,
             "schema": {
@@ -25,7 +25,7 @@
           }
         ],
         "requestBody": {
-          "x-name": "Data",
+          "x-name": "data",
           "content": {
             "application/json": {
               "schema": {
@@ -46,11 +46,14 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": ""
           }
         }
       }
     },
-    "/api/v1/todolists/{ListId}/tasks/{TaskId}": {
+    "/api/v1/todolists/{listId}/tasks/{taskId}": {
       "delete": {
         "tags": [
           "TodoTasks"
@@ -58,7 +61,7 @@
         "operationId": "DeleteTodoTask_Handle",
         "parameters": [
           {
-            "name": "ListId",
+            "name": "listId",
             "in": "path",
             "required": true,
             "schema": {
@@ -68,7 +71,7 @@
             "x-position": 1
           },
           {
-            "name": "TaskId",
+            "name": "taskId",
             "in": "path",
             "required": true,
             "schema": {
@@ -80,12 +83,14 @@
         ],
         "responses": {
           "200": {
+            "description": ""
+          },
+          "404": {
             "description": "",
             "content": {
-              "application/octet-stream": {
+              "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
+                  "type": "string"
                 }
               }
             }
@@ -99,7 +104,7 @@
         "operationId": "UpdateTodoTask_Handle",
         "parameters": [
           {
-            "name": "ListId",
+            "name": "listId",
             "in": "path",
             "required": true,
             "schema": {
@@ -109,7 +114,7 @@
             "x-position": 1
           },
           {
-            "name": "TaskId",
+            "name": "taskId",
             "in": "path",
             "required": true,
             "schema": {
@@ -120,7 +125,7 @@
           }
         ],
         "requestBody": {
-          "x-name": "Data",
+          "x-name": "data",
           "content": {
             "application/json": {
               "schema": {
@@ -141,6 +146,16 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       }
@@ -152,7 +167,7 @@
         ],
         "operationId": "CreateTodoList_Handle",
         "requestBody": {
-          "x-name": "Data",
+          "x-name": "data",
           "content": {
             "application/json": {
               "schema": {
@@ -198,7 +213,7 @@
         }
       }
     },
-    "/api/v1/todolists/{ListId}": {
+    "/api/v1/todolists/{listId}": {
       "get": {
         "tags": [
           "TodoTasks"
@@ -206,7 +221,7 @@
         "operationId": "GetTodoListDetails_Handle",
         "parameters": [
           {
-            "name": "ListId",
+            "name": "listId",
             "in": "path",
             "required": true,
             "schema": {
@@ -226,6 +241,9 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": ""
           }
         }
       }
@@ -263,22 +281,6 @@
         "properties": {
           "name": {
             "type": "string"
-          }
-        }
-      },
-      "TodoTaskUpdateDto": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "name",
-          "isCompleted"
-        ],
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "isCompleted": {
-            "type": "boolean"
           }
         }
       },
@@ -332,6 +334,22 @@
             "items": {
               "$ref": "#/components/schemas/TodoTaskDto"
             }
+          }
+        }
+      },
+      "TodoTaskUpdateDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "isCompleted"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "isCompleted": {
+            "type": "boolean"
           }
         }
       }

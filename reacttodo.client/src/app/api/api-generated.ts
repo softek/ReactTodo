@@ -74,7 +74,7 @@ export type CreateTodoTaskHandleApiRequest = {
     listId: string;
     todoTaskCreateDto: TodoTaskCreateDto;
 };
-export type DeleteTodoTaskHandleApiResponse = unknown;
+export type DeleteTodoTaskHandleApiResponse = /** status 200  */ void;
 export type DeleteTodoTaskHandleApiRequest = {
     listId: string;
     taskId: string;
