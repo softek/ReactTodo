@@ -6,6 +6,59 @@
     "version": "1.0.0"
   },
   "paths": {
+    "/api/v1/todolists": {
+      "post": {
+        "tags": [
+          "TodoLists"
+        ],
+        "operationId": "CreateTodoList_Handle",
+        "requestBody": {
+          "x-name": "data",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TodoListCreateDto"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TodoListDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "TodoLists"
+        ],
+        "operationId": "ListTodoLists_Handle",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TodoListDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/todolists/{listId}/tasks": {
       "post": {
         "tags": [
@@ -160,59 +213,6 @@
         }
       }
     },
-    "/api/v1/todolists": {
-      "post": {
-        "tags": [
-          "TodoLists"
-        ],
-        "operationId": "CreateTodoList_Handle",
-        "requestBody": {
-          "x-name": "data",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/TodoListCreateDto"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 1
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TodoListDto"
-                }
-              }
-            }
-          }
-        }
-      },
-      "get": {
-        "tags": [
-          "TodoLists"
-        ],
-        "operationId": "ListTodoLists_Handle",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/TodoListDto"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/api/v1/todolists/{listId}": {
       "get": {
         "tags": [
@@ -251,6 +251,35 @@
   },
   "components": {
     "schemas": {
+      "TodoListDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "guid"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "TodoListCreateDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        }
+      },
       "TodoTaskDto": {
         "type": "object",
         "additionalProperties": false,
@@ -273,35 +302,6 @@
         }
       },
       "TodoTaskCreateDto": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "name"
-        ],
-        "properties": {
-          "name": {
-            "type": "string"
-          }
-        }
-      },
-      "TodoListDto": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "id",
-          "name"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "guid"
-          },
-          "name": {
-            "type": "string"
-          }
-        }
-      },
-      "TodoListCreateDto": {
         "type": "object",
         "additionalProperties": false,
         "required": [

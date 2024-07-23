@@ -39,6 +39,6 @@ app.MapControllers();
 
 app.MapFallbackToFile("/index.html");
 
-app.MapTodoListsEndpoints();
+app.MapApiEndpoints();
 
 app.Run();

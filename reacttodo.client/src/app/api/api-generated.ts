@@ -1,11 +1,29 @@
 import { emptyApi as api } from "./api-base";
-export const addTagTypes = ["TodoTasks", "TodoLists"] as const;
+export const addTagTypes = ["TodoLists", "TodoTasks"] as const;
 const injectedRtkApi = api
     .enhanceEndpoints({
         addTagTypes,
     })
     .injectEndpoints({
         endpoints: (build) => ({
+            createTodoListHandle: build.mutation<
+                CreateTodoListHandleApiResponse,
+                CreateTodoListHandleApiRequest
+            >({
+                query: (queryArg) => ({
+                    url: `/api/v1/todolists`,
+                    method: "POST",
+                    body: queryArg.todoListCreateDto,
+                }),
+                invalidatesTags: ["TodoLists"],
+            }),
+            listTodoListsHandle: build.query<
+                ListTodoListsHandleApiResponse,
+                ListTodoListsHandleApiRequest
+            >({
+                query: () => ({ url: `/api/v1/todolists` }),
+                providesTags: ["TodoLists"],
+            }),
             createTodoTaskHandle: build.mutation<
                 CreateTodoTaskHandleApiResponse,
                 CreateTodoTaskHandleApiRequest
@@ -38,24 +56,6 @@ const injectedRtkApi = api
                 }),
                 invalidatesTags: ["TodoTasks"],
             }),
-            createTodoListHandle: build.mutation<
-                CreateTodoListHandleApiResponse,
-                CreateTodoListHandleApiRequest
-            >({
-                query: (queryArg) => ({
-                    url: `/api/v1/todolists`,
-                    method: "POST",
-                    body: queryArg.todoListCreateDto,
-                }),
-                invalidatesTags: ["TodoLists"],
-            }),
-            listTodoListsHandle: build.query<
-                ListTodoListsHandleApiResponse,
-                ListTodoListsHandleApiRequest
-            >({
-                query: () => ({ url: `/api/v1/todolists` }),
-                providesTags: ["TodoLists"],
-            }),
             getTodoListDetailsHandle: build.query<
                 GetTodoListDetailsHandleApiResponse,
                 GetTodoListDetailsHandleApiRequest
@@ -69,6 +69,12 @@ const injectedRtkApi = api
         overrideExisting: false,
     });
 export { injectedRtkApi as api };
+export type CreateTodoListHandleApiResponse = /** status 200  */ TodoListDto;
+export type CreateTodoListHandleApiRequest = {
+    todoListCreateDto: TodoListCreateDto;
+};
+export type ListTodoListsHandleApiResponse = /** status 200  */ TodoListDto[];
+export type ListTodoListsHandleApiRequest = void;
 export type CreateTodoTaskHandleApiResponse = /** status 200  */ TodoTaskDto;
 export type CreateTodoTaskHandleApiRequest = {
     listId: string;
@@ -85,16 +91,17 @@ export type UpdateTodoTaskHandleApiRequest = {
     taskId: string;
     todoTaskUpdateDto: TodoTaskUpdateDto;
 };
-export type CreateTodoListHandleApiResponse = /** status 200  */ TodoListDto;
-export type CreateTodoListHandleApiRequest = {
-    todoListCreateDto: TodoListCreateDto;
-};
-export type ListTodoListsHandleApiResponse = /** status 200  */ TodoListDto[];
-export type ListTodoListsHandleApiRequest = void;
 export type GetTodoListDetailsHandleApiResponse =
     /** status 200  */ TodoListDetailDto;
 export type GetTodoListDetailsHandleApiRequest = {
     listId: string;
+};
+export type TodoListDto = {
+    id: string;
+    name: string;
+};
+export type TodoListCreateDto = {
+    name: string;
 };
 export type TodoTaskDto = {
     id: string;
@@ -107,13 +114,6 @@ export type TodoTaskCreateDto = {
 export type TodoTaskUpdateDto = {
     name: string;
     isCompleted: boolean;
-};
-export type TodoListDto = {
-    id: string;
-    name: string;
-};
-export type TodoListCreateDto = {
-    name: string;
 };
 export type TodoListDetailDto = {
     id: string;
