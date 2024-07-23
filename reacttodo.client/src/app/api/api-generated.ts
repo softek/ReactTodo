@@ -6,9 +6,9 @@ const injectedRtkApi = api
     })
     .injectEndpoints({
         endpoints: (build) => ({
-            createTodoListHandle: build.mutation<
-                CreateTodoListHandleApiResponse,
-                CreateTodoListHandleApiRequest
+            createTodoList: build.mutation<
+                CreateTodoListApiResponse,
+                CreateTodoListApiRequest
             >({
                 query: (queryArg) => ({
                     url: `/api/v1/todolists`,
@@ -17,16 +17,16 @@ const injectedRtkApi = api
                 }),
                 invalidatesTags: ["TodoLists"],
             }),
-            listTodoListsHandle: build.query<
-                ListTodoListsHandleApiResponse,
-                ListTodoListsHandleApiRequest
+            listTodoLists: build.query<
+                ListTodoListsApiResponse,
+                ListTodoListsApiRequest
             >({
                 query: () => ({ url: `/api/v1/todolists` }),
                 providesTags: ["TodoLists"],
             }),
-            createTodoTaskHandle: build.mutation<
-                CreateTodoTaskHandleApiResponse,
-                CreateTodoTaskHandleApiRequest
+            createTodoTask: build.mutation<
+                CreateTodoTaskApiResponse,
+                CreateTodoTaskApiRequest
             >({
                 query: (queryArg) => ({
                     url: `/api/v1/todolists/${queryArg.listId}/tasks`,
@@ -35,9 +35,9 @@ const injectedRtkApi = api
                 }),
                 invalidatesTags: ["TodoTasks"],
             }),
-            deleteTodoTaskHandle: build.mutation<
-                DeleteTodoTaskHandleApiResponse,
-                DeleteTodoTaskHandleApiRequest
+            deleteTodoTask: build.mutation<
+                DeleteTodoTaskApiResponse,
+                DeleteTodoTaskApiRequest
             >({
                 query: (queryArg) => ({
                     url: `/api/v1/todolists/${queryArg.listId}/tasks/${queryArg.taskId}`,
@@ -45,9 +45,9 @@ const injectedRtkApi = api
                 }),
                 invalidatesTags: ["TodoTasks"],
             }),
-            updateTodoTaskHandle: build.mutation<
-                UpdateTodoTaskHandleApiResponse,
-                UpdateTodoTaskHandleApiRequest
+            updateTodoTask: build.mutation<
+                UpdateTodoTaskApiResponse,
+                UpdateTodoTaskApiRequest
             >({
                 query: (queryArg) => ({
                     url: `/api/v1/todolists/${queryArg.listId}/tasks/${queryArg.taskId}`,
@@ -56,9 +56,9 @@ const injectedRtkApi = api
                 }),
                 invalidatesTags: ["TodoTasks"],
             }),
-            getTodoListDetailsHandle: build.query<
-                GetTodoListDetailsHandleApiResponse,
-                GetTodoListDetailsHandleApiRequest
+            getTodoListDetails: build.query<
+                GetTodoListDetailsApiResponse,
+                GetTodoListDetailsApiRequest
             >({
                 query: (queryArg) => ({
                     url: `/api/v1/todolists/${queryArg.listId}`,
@@ -69,31 +69,31 @@ const injectedRtkApi = api
         overrideExisting: false,
     });
 export { injectedRtkApi as api };
-export type CreateTodoListHandleApiResponse = /** status 200  */ TodoListDto;
-export type CreateTodoListHandleApiRequest = {
+export type CreateTodoListApiResponse = /** status 200  */ TodoListDto;
+export type CreateTodoListApiRequest = {
     todoListCreateDto: TodoListCreateDto;
 };
-export type ListTodoListsHandleApiResponse = /** status 200  */ TodoListDto[];
-export type ListTodoListsHandleApiRequest = void;
-export type CreateTodoTaskHandleApiResponse = /** status 200  */ TodoTaskDto;
-export type CreateTodoTaskHandleApiRequest = {
+export type ListTodoListsApiResponse = /** status 200  */ TodoListDto[];
+export type ListTodoListsApiRequest = void;
+export type CreateTodoTaskApiResponse = /** status 200  */ TodoTaskDto;
+export type CreateTodoTaskApiRequest = {
     listId: string;
     todoTaskCreateDto: TodoTaskCreateDto;
 };
-export type DeleteTodoTaskHandleApiResponse = /** status 200  */ void;
-export type DeleteTodoTaskHandleApiRequest = {
+export type DeleteTodoTaskApiResponse = /** status 200  */ void;
+export type DeleteTodoTaskApiRequest = {
     listId: string;
     taskId: string;
 };
-export type UpdateTodoTaskHandleApiResponse = /** status 200  */ TodoTaskDto;
-export type UpdateTodoTaskHandleApiRequest = {
+export type UpdateTodoTaskApiResponse = /** status 200  */ TodoTaskDto;
+export type UpdateTodoTaskApiRequest = {
     listId: string;
     taskId: string;
     todoTaskUpdateDto: TodoTaskUpdateDto;
 };
-export type GetTodoListDetailsHandleApiResponse =
+export type GetTodoListDetailsApiResponse =
     /** status 200  */ TodoListDetailDto;
-export type GetTodoListDetailsHandleApiRequest = {
+export type GetTodoListDetailsApiRequest = {
     listId: string;
 };
 export type TodoListDto = {

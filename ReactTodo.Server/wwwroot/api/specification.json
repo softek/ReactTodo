@@ -11,7 +11,7 @@
         "tags": [
           "TodoLists"
         ],
-        "operationId": "CreateTodoList_Handle",
+        "operationId": "CreateTodoList",
         "requestBody": {
           "x-name": "data",
           "content": {
@@ -41,7 +41,7 @@
         "tags": [
           "TodoLists"
         ],
-        "operationId": "ListTodoLists_Handle",
+        "operationId": "ListTodoLists",
         "responses": {
           "200": {
             "description": "",
@@ -64,7 +64,7 @@
         "tags": [
           "TodoTasks"
         ],
-        "operationId": "CreateTodoTask_Handle",
+        "operationId": "CreateTodoTask",
         "parameters": [
           {
             "name": "listId",
@@ -111,7 +111,7 @@
         "tags": [
           "TodoTasks"
         ],
-        "operationId": "DeleteTodoTask_Handle",
+        "operationId": "DeleteTodoTask",
         "parameters": [
           {
             "name": "listId",
@@ -154,7 +154,7 @@
         "tags": [
           "TodoTasks"
         ],
-        "operationId": "UpdateTodoTask_Handle",
+        "operationId": "UpdateTodoTask",
         "parameters": [
           {
             "name": "listId",
@@ -218,7 +218,7 @@
         "tags": [
           "TodoTasks"
         ],
-        "operationId": "GetTodoListDetails_Handle",
+        "operationId": "GetTodoListDetails",
         "parameters": [
           {
             "name": "listId",

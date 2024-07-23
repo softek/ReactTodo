@@ -11,10 +11,10 @@ export function List() {
     throw new Error('List ID is required');
   }
 
-  const { data } = api.useGetTodoListDetailsHandleQuery({ listId });
-  const [deleteTask] = api.useDeleteTodoTaskHandleMutation();
-  const [updateTask] = api.useUpdateTodoTaskHandleMutation();
-  const [createTask] = api.useCreateTodoTaskHandleMutation();
+  const { data } = api.useGetTodoListDetailsQuery({ listId });
+  const [deleteTask] = api.useDeleteTodoTaskMutation();
+  const [updateTask] = api.useUpdateTodoTaskMutation();
+  const [createTask] = api.useCreateTodoTaskMutation();
 
   return (
     <TodoList

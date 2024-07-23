@@ -13,10 +13,10 @@ public static class TodoLists
             .WithTags("TodoLists");
 
         group.MapPost("", CreateTodoList)
-            .WithName($"{nameof(CreateTodoList)}_Handle");
+            .WithName(nameof(CreateTodoList));
 
         group.MapGet("", ListTodoLists)
-            .WithName($"{nameof(ListTodoLists)}_Handle");
+            .WithName(nameof(ListTodoLists));
     }
 
     public static async Task<Ok<IEnumerable<TodoListDto>>> ListTodoLists(

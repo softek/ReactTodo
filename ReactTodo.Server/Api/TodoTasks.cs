@@ -14,17 +14,16 @@ public static class TodoTasks
             .WithTags("TodoTasks");
 
         group.MapPost("{listId:guid}/tasks", CreateTodoTask)
-            // TODO: RTK Query wants the "_Handle" suffix?
-            .WithName($"{nameof(CreateTodoTask)}_Handle");
+            .WithName(nameof(CreateTodoTask));
 
         group.MapDelete("{listId:guid}/tasks/{taskId:guid}", DeleteTodoTask)
-            .WithName($"{nameof(DeleteTodoTask)}_Handle");
+            .WithName(nameof(DeleteTodoTask));
 
         group.MapGet("{listId:guid}", GetTodoListDetails)
-            .WithName($"{nameof(GetTodoListDetails)}_Handle");
+            .WithName(nameof(GetTodoListDetails));
 
         group.MapPut("{listId:guid}/tasks/{taskId:guid}", UpdateTodoTask)
-            .WithName($"{nameof(UpdateTodoTask)}_Handle");
+            .WithName(nameof(UpdateTodoTask));
     }
 
     public static async Task<Results<Ok<TodoListDetailDto>, NotFound>> GetTodoListDetails(
