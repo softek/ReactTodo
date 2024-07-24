@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactTodo.App", "ReactTodo.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactTodo", "ReactTodo\ReactTodo.csproj", "{30828EFB-6A0B-469B-8244-8AB4B6035A1A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactTodo.Htmx", "ReactTodo.Htmx\ReactTodo.Htmx.csproj", "{DBEAA8D1-BBFF-428F-9222-C09BEE9E7790}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{30828EFB-6A0B-469B-8244-8AB4B6035A1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30828EFB-6A0B-469B-8244-8AB4B6035A1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30828EFB-6A0B-469B-8244-8AB4B6035A1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBEAA8D1-BBFF-428F-9222-C09BEE9E7790}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBEAA8D1-BBFF-428F-9222-C09BEE9E7790}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBEAA8D1-BBFF-428F-9222-C09BEE9E7790}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBEAA8D1-BBFF-428F-9222-C09BEE9E7790}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

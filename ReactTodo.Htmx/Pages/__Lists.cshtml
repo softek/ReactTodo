@@ -1,0 +1,21 @@
+@model ReactTodo.Htmx.Pages.IndexModel
+
+<div id="todo-lists">
+
+    <form hx-post="/" hx-target="#todo-lists">
+        <div class="p-0 d-flex mb-4">
+            <input placeholder="New list" asp-for="Name" type="text" class="form-control" aria-invalid="false" required>
+            <span asp-validation-for="Name" class="text-danger"></span>
+            <button type="submit" class="btn btn-success" aria-label="Create List">Create List</button>
+        </div>
+    </form>
+
+    <ul class="list-group">
+        @foreach (var list in Model.TodoLists)
+        {
+            <li class="list-group-item-action list-group-item">
+                <a asp-page="./List/Index" asp-route-id="@list.Id">@Html.DisplayFor(mi => list.Name)</a>
+            </li>
+        }
+    </ul>
+</div>

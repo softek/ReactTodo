@@ -1,0 +1,21 @@
+@model ReactTodo.Core.Entities.TodoTask
+
+
+<li class="list-group-item">
+
+    <form hx-post="@Url.Page("Index", "Edit", new { taskId = Model.Id, listId = Model.List.Id })">
+        <input type="checkbox" name="isCompleted" class="form-check-input" checked="@Model.IsCompleted" hidden />
+        <input name="name" type="text" class="form-control" aria-invalid="false" value="@Model.Name" />
+        <button type="submit"
+                class="btn btn-primary"
+                aria-label="Save">
+            <span>Save</span>
+        </button>
+        <button type="button"
+                class="btn btn-secondary"
+                aria-label="Cancel"
+                hx-get="@Url.Page("Index", new { taskId = Model.Id, listId = Model.List.Id })">
+            <span>Cancel</span>
+        </button>
+    </form>
+</li>

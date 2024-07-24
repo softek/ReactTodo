@@ -1,0 +1,44 @@
+@model ReactTodo.Core.Entities.TodoTask
+<li class="list-group-item">
+    <div class="form-check form-check-inline">
+        <form>
+            <input id="task-completion-@Model.Id"
+                   type="checkbox"
+                   class="form-check-input"
+                   checked="@Model.IsCompleted"
+                   name="IsCompleted"
+                   hx-post
+                   hx-page="Task/Index"
+                   hx-page-handler="Edit"
+                   hx-route-taskId="@Model.Id"
+                   hx-route-listId="@Model.List.Id" />
+            <label for="task-completion-@Model.Id" class="form-check-label @(@Model.IsCompleted ? "text-decoration-line-through" : "")">@Html.DisplayFor(mi => Model.Name)</label>
+            <input name="name" type="text" class="form-control" aria-invalid="false" value="@Model.Name" hidden />
+        </form>
+    </div>
+    @if (@Model.IsCompleted)
+    {
+        <button type="button"
+                class="btn btn-danger"
+                aria-label="Delete"
+                hx-delete
+                hx-page="Task/Index"
+                hx-route-taskId="@Model.Id"
+                hx-route-listId="@Model.List.Id">
+            <span>Delete</span>
+        </button>
+    }
+    else
+    {
+        <button type="button"
+                class="btn btn-secondary"
+                aria-label="Edit"
+                hx-get
+                hx-page="Task/Index"
+                hx-page-handler="Edit"
+                hx-route-taskId="@Model.Id"
+                hx-route-listId="@Model.List.Id">
+            <span>Edit</span>
+        </button>
+    }
+</li>
