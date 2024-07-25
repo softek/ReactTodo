@@ -4,7 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <SpaRoot>..\reacttodo.client</SpaRoot>
+    <SpaRoot>..\reacttodo.client.vue</SpaRoot>
     <SpaProxyLaunchCommand>npm run dev</SpaProxyLaunchCommand>
     <SpaProxyServerUrl>https://localhost:5173</SpaProxyServerUrl>
   </PropertyGroup>
@@ -29,6 +29,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ReactTodo.App\ReactTodo.App.csproj" />
+    <ProjectReference Include="..\reacttodo.client.vue\reacttodo.client.vue.esproj">
+      <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
+    </ProjectReference>
     <ProjectReference Include="..\reacttodo.client\reacttodo.client.esproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
@@ -42,8 +45,8 @@
     <RemoveDir Directories="$(OutDir)References" />
   </Target>
 
-  <Target Name="APIGeneration" AfterTargets="NSwag" Condition="'$(Configuration)' == 'Debug'">
+  <!--<Target Name="APIGeneration" AfterTargets="NSwag" Condition="'$(Configuration)' == 'Debug'">
     <Exec WorkingDirectory="$(SpaRoot)" Command="npx @rtk-query/codegen-openapi .\src\app\api\openapi-config.json" />
-  </Target>
+  </Target>-->
 
 </Project>

@@ -7,15 +7,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReactTodo.Server", "ReactTo
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "reacttodo.client", "reacttodo.client\reacttodo.client.esproj", "{6001FAC6-2566-4386-8A09-6315F59B3CD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactTodo.Core", "ReactTodo.Core\ReactTodo.Core.csproj", "{9F15A4E9-AF61-4868-ABD8-C1785CC4DFC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReactTodo.Core", "ReactTodo.Core\ReactTodo.Core.csproj", "{9F15A4E9-AF61-4868-ABD8-C1785CC4DFC5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactTodo.Core.Infrastructure", "ReactTodo.Core.Infrastructure\ReactTodo.Core.Infrastructure.csproj", "{82A5960A-3968-4E23-BBE8-4961E2F54895}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReactTodo.Core.Infrastructure", "ReactTodo.Core.Infrastructure\ReactTodo.Core.Infrastructure.csproj", "{82A5960A-3968-4E23-BBE8-4961E2F54895}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactTodo.App", "ReactTodo.App\ReactTodo.App.csproj", "{077A6076-5623-413B-9338-4D8A92733151}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReactTodo.App", "ReactTodo.App\ReactTodo.App.csproj", "{077A6076-5623-413B-9338-4D8A92733151}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactTodo", "ReactTodo\ReactTodo.csproj", "{30828EFB-6A0B-469B-8244-8AB4B6035A1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReactTodo", "ReactTodo\ReactTodo.csproj", "{30828EFB-6A0B-469B-8244-8AB4B6035A1A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactTodo.Htmx", "ReactTodo.Htmx\ReactTodo.Htmx.csproj", "{DBEAA8D1-BBFF-428F-9222-C09BEE9E7790}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReactTodo.Htmx", "ReactTodo.Htmx\ReactTodo.Htmx.csproj", "{DBEAA8D1-BBFF-428F-9222-C09BEE9E7790}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "reacttodo.client.vue", "reacttodo.client.vue\reacttodo.client.vue.esproj", "{B77AE532-24A8-43CA-91FB-1BB29FC57B04}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +55,12 @@ Global
 		{DBEAA8D1-BBFF-428F-9222-C09BEE9E7790}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBEAA8D1-BBFF-428F-9222-C09BEE9E7790}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBEAA8D1-BBFF-428F-9222-C09BEE9E7790}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B77AE532-24A8-43CA-91FB-1BB29FC57B04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B77AE532-24A8-43CA-91FB-1BB29FC57B04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B77AE532-24A8-43CA-91FB-1BB29FC57B04}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B77AE532-24A8-43CA-91FB-1BB29FC57B04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B77AE532-24A8-43CA-91FB-1BB29FC57B04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B77AE532-24A8-43CA-91FB-1BB29FC57B04}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
